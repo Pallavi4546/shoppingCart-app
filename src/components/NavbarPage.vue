@@ -6,12 +6,15 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" :class="{ 'show': isNavbarOpen }">
-          <ul class="navbar-nav ">
+          <ul class="navbar-nav mx-4 ">
             <li class="nav-item" v-if="!login">
               <router-link class="nav-link " to="/login"><button  class="btn p-2">Log In</button></router-link>
             </li>
             <li class="nav-item" v-if="login">
-              <router-link class="nav-link " to="/login"><button  class="btn p-2">View Cart</button></router-link>
+              <router-link class="nav-link " to="/shopping-cart"><button  class="btn p-2">Shop</button></router-link>
+            </li>
+            <li class="nav-item" v-if="login">
+              <router-link class="nav-link " to="/cart-items"><button  class="btn p-2"><button :style="itemsInCart ? `width:25px;height:25px;background:white;border-radius:10px;border:none` : `display:none`">{{ itemsInCart }}</button> View Cart </button></router-link>
             </li>
             <li class="nav-item" v-if="login">
               <router-link class="nav-link " to="#"><button  class="btn p-2" @click.prevent="logout()">Log Out</button></router-link>
@@ -27,13 +30,21 @@
     data() {
       return {
         isNavbarOpen: false,
-        login:false
+        login:false,
+        cartItems:[]
       }
     },
-    created(){
+    mounted(){
 const localStorageItems = localStorage.getItem("user");
-if(localStorageItems)this.login=true
-console.log("user",localStorageItems)
+this.cartItem = JSON.parse(localStorage.getItem("cartArray"))
+
+if(localStorageItems?.length > 0)this.login=true
+console.log("login",this.login)
+    },
+    computed:{
+        itemsInCart(){
+           return this.cartItem?.length
+        }
     },
     methods:{
         logout(){
@@ -55,10 +66,11 @@ console.log("user",localStorageItems)
     color:#fff;
     border-radius: 30px;
     box-shadow: 4px 4px 4px 4px #f5f5f5;
-    width:100px;
-    float:inline-end
+    width:150px;
 }
-
+.navbar-expand-md .navbar-collapse {
+    flex-direction: row-reverse;
+}
 
 
 </style>
