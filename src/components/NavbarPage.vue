@@ -39,7 +39,6 @@
     },
     methods:{
         logout(){
-          console.log("this",this)
           let user = false
             localStorage.setItem("user",user);
             this.store.dispatch("loginFunction", user);

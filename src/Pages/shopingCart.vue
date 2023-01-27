@@ -78,7 +78,7 @@ return{
       "price": 2339.99,
       "image": require(`@/assets/img4.png`),
       "description": "A elegant dress",
-      "colors": ["black", "orange"],
+      "colors": ["purple", "lightblue"],
       "sizes": ["XS", "S", "M", "L"],
       "categories": ["women", "outdoor"],
       "brand":"Forever21"
@@ -89,7 +89,7 @@ return{
       "price": 6779.99,
       "image":require(`@/assets/img9.png`),
       "description": "Women denim Jacket",
-      "colors": ["black", "pink"],
+      "colors": ["lightblue", "pink"],
       "sizes": ["XS", "S", "M", "L"],
       "categories": ["women", "outdoor"],
       "brand":"Forever21"
@@ -116,11 +116,9 @@ this.store.dispatch("countCartItem",  this.cartArray?.length)
 methods:{
     selectedColor(color){
         this.selectedItemColor = color
-        console.log("selectedColor",color)
     },
     size(size){
         this.selectedSize = size
-        console.log("size",size)
     },
     addItemToCart(item){
         let obj = {...item}
@@ -130,19 +128,15 @@ else if(this.selectedSize==null )alert("Please select a size ")
 else{
     obj.colors = this.selectedItemColor
     obj.sizes = this.selectedSize
-    console.log(obj)
     if(localStorage.getItem("cartArray")){
         this.cartArray =  JSON.parse(localStorage.getItem("cartArray"))
-        console.log("if before",  this.cartArray)
 
         this.cartArray.push(obj)
         localStorage.setItem("cartArray", JSON.stringify(this.cartArray));
-        console.log("if",  this.cartArray)
     }
    else{
     this.cartArray.push(obj)
     localStorage.setItem("cartArray", JSON.stringify(this.cartArray));
-    console.log("else")
    }
    this.store.dispatch("countCartItem",  this.cartArray?.length);
    this.selectedItemColor =null
