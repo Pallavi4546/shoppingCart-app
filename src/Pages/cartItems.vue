@@ -20,22 +20,26 @@
             </div>
         </div>
     </div>
-   
+    <div v-if="cartData.length == 0">
+<div class="d-flex align-item-center justify-content-center ">
+    <h5>No items in Cart</h5>
 </div>
-<div v-if="cartData == []">
-No items in cart
     </div>
+</div>
+
 </template>
 <script>
+  import { useStore } from "vuex";
 export default{
     data(){
         return{
-            cartData:[]
+            cartData:[],
+        store:useStore()
         }
     },
     created(){
         this.cartData = JSON.parse(localStorage.getItem("cartArray"))
-     
+        this.store.dispatch("countCartItem",  this.cartData?.length);
         console.log(" this.cartData", this.cartData)
     },
     methods:{
