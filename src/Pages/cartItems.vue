@@ -46,6 +46,7 @@ export default {
         removeItems(item, i) {
             this.cartData.splice(i, 1)
             localStorage.setItem("cartArray", JSON.stringify(this.cartData));
+            this.store.dispatch("countCartItem", this.cartData?.length);
         }
     }
 }
