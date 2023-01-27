@@ -1,6 +1,6 @@
 <template>
     <div class="cardCenter row">
-        <div class=" col-md-5 col-sm-11 p-5">
+        <div class=" col-md-6 col-sm-11 p-5">
             <div class="card ">
   <div class=" m-2">
     <input type="email" class="form-control" id="email" placeholder="Enter email" v-model="email">
@@ -11,7 +11,7 @@
   <div class=" m-2">
     <input type="number" class="form-control" id="phone" placeholder="Enter Phone no:" v-model="phone">
   </div>
-  <div class="text-center"> 
+  <div class="text-center my-3"> 
     <button type="submit" class="btn btn-primary" @click.prevent="login">Log In</button>
   </div>
             </div>
@@ -40,7 +40,7 @@ alert("Fill complete details")
     phone: this.phone
 };
 localStorage.setItem("user", JSON.stringify(user));
-            this.$router.push("/shoppingCart")
+            this.$router.push("/shopping-cart")
         }
         console.log(this.email)
       }

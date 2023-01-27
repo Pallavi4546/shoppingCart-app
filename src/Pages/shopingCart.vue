@@ -39,10 +39,10 @@ return{
     {
       "id": 1,
       "name": "T-Shirt",
-      "price": 19.99,
+      "price": 6789.99,
       "image": require(`@/assets/img7.png`),
       "description": "A comfortable and stylish cloth.",
-      "colors": ["red", "blue", "green"],
+      "colors": ["orange", "lightblue", "pink"],
       "sizes": ["S", "M", "L", "XL"],
       "categories": ["Women", "casual"],
       "brand":"Roadster"
@@ -50,10 +50,10 @@ return{
     {
       "id": 2,
       "name": "Dress",
-      "price": 49.99,
+      "price": 4890.99,
       "image": require(`@/assets/img2.png`),
       "description": "A elegant dress",
-      "colors": ["black", "white"],
+      "colors": ["black", "pink"],
       "sizes": ["XS", "S", "M", "L"],
       "categories": ["women", "formal"],
       "brand":"Orange"
@@ -61,7 +61,7 @@ return{
     {
       "id": 3,
       "name": "Jacket",
-      "price": 79.99,
+      "price": 799.99,
       "image": require(`@/assets/img3.png`),
       "description": "A warm jacket",
       "colors": ["black", "gray"],
@@ -72,10 +72,10 @@ return{
     {
       "id": 2,
       "name": "Dress",
-      "price": 49.99,
+      "price": 2339.99,
       "image": require(`@/assets/img4.png`),
       "description": "A elegant dress",
-      "colors": ["black", "white"],
+      "colors": ["black", "orange"],
       "sizes": ["XS", "S", "M", "L"],
       "categories": ["women", "outdoor"],
       "brand":"Forever21"
@@ -83,10 +83,10 @@ return{
     {
       "id": 2,
       "name": "Dress",
-      "price": 49.99,
+      "price": 6779.99,
       "image":require(`@/assets/img9.png`),
       "description": "Women denim Jacket",
-      "colors": ["black", "white"],
+      "colors": ["black", "pink"],
       "sizes": ["XS", "S", "M", "L"],
       "categories": ["women", "outdoor"],
       "brand":"Forever21"
@@ -95,10 +95,10 @@ return{
     {
       "id": 2,
       "name": "Dress",
-      "price": 49.99,
+      "price": 4999.99,
       "image":require(`@/assets/img6.png`),
       "description": "A elegant straight fit Jeans",
-      "colors": ["black", "white"],
+      "colors": ["black", "lightblue"],
       "sizes": ["XS", "S", "M", "L"],
       "categories": ["women", "outdoor"],
       "brand":"Roadster"
@@ -140,6 +140,7 @@ else{
    this.selectedItemColor =null
     this.selectedSize = null
     alert("Item added to cart successfully!")
+    window.location.reload()
 }
     }
 }
