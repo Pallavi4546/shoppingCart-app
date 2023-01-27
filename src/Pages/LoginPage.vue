@@ -6,11 +6,9 @@
     <input type="email" class="form-control" id="email" placeholder="Enter email" v-model="email">
   </div>
   <div class=" m-2">
-    <input type="text" class="form-control" id="name" placeholder="Enter name" v-model="name">
+    <input type="password" class="form-control" id="password" placeholder="Enter password" v-model="password">
   </div>
-  <div class=" m-2">
-    <input type="number" class="form-control" id="phone" placeholder="Enter Phone no:" v-model="phone">
-  </div>
+ 
   <div class="text-center my-3"> 
     <button type="submit" class="btn btn-primary" @click.prevent="login">Log In</button>
   </div>
@@ -21,28 +19,27 @@
   </template>
   
   <script>
+import { useStore } from "vuex";
   export default {
     data() {
       return {
         email: null,
-        name: null,
-        phone:null
+        password:null,
+        store :useStore()
       };
     },
     methods: {
       login() {
-        if((this.email==null || this.email =="") || (this.name == null || this.name =="") || (this.phone==null || this.phone == "")){
+        // eslint-disable-next-line
+        /* eslint-disable */
+        if((!this.email) || (!this.password) ){
 alert("Fill complete details")
         }else{
-            const user = {
-    name: this.name,
-    email: this.email,
-    phone: this.phone
-};
-localStorage.setItem("user", JSON.stringify(user));
+            const user = true
+localStorage.setItem("user", user);
+this.store.dispatch("loginFunction", user);
             this.$router.push("/shopping-cart")
         }
-        console.log(this.email)
       }
     }
   };
